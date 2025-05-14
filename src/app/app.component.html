@@ -1,7 +1,89 @@
-<app-file-form (create)="add($event)"></app-file-form>
+<!-- <app-file-form (create)="add($event)"></app-file-form>
 <app-file-filter (change)="filter = $event"></app-file-filter>
 <app-file-list 
   [files]="archivoFiltrado" 
   (toggle)="toggle($event)" 
   (remove)="remove($event)">
-</app-file-list>
+</app-file-list> -->
+
+<div class="page-wrapper" [class.dark]="darkMode">
+  <!-- Barra superior con switch -->
+  <div class="toolbar">
+    <button
+      pButton
+      (click)="toggleDark()"
+      label="{{ darkMode ? 'Light' : 'Dark' }}"
+    ></button>
+  </div>
+
+  <!-- Contenedor de Cards -->
+  <div class="cards-container">
+    <!-- Card de subida -->
+    <p-card header="Subir archivo" styleClass="upload-card">
+      <!-- Input oculto -->
+      <input 
+        type="file" 
+        #fileInput 
+        (change)="onFileChosen($event)" 
+        hidden />
+    
+      <!-- Botón de Seleccionar -->
+      <button 
+        pButton 
+        icon="pi pi-upload" 
+        label="Seleccionar" 
+        class="p-button-outlined p-mr-2"
+        (click)="fileInput.click()">
+      </button>
+    
+      <!-- Botón de Subir -->
+      <button 
+        pButton 
+        icon="pi pi-check" 
+        label="Subir" 
+        [disabled]="!selectedFile" 
+        (click)="uploadChosenFile()">
+      </button>
+    </p-card>
+
+    <!-- Card de lista -->
+    <p-card header="Archivos subidos" styleClass="list-card">
+      <app-file-filter (change)="filter = $event"></app-file-filter>
+      <p-table [value]="archivoFiltrado" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Tamaño (KB)</th>
+            <th>Tipo</th>
+            <th>Procesado</th>
+            <th>Acciones</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-file>
+          <tr [ngClass]="{ processed: file.processed }">
+            <td>{{ file.name }}</td>
+            <td>{{ file.size }}</td>
+            <td>{{ file.type }}</td>
+            <td>
+              <p-checkbox
+                binary="true"
+                [(ngModel)]="file.processed"
+                (ngModelChange)="toggle(file)"
+              >
+                <!-- (onChange)="toggle(file)" -->
+              </p-checkbox>
+            </td>
+            <td>
+              <button
+                pButton
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-button-text"
+                (click)="remove(file)"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+</div>

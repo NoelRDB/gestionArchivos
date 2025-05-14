@@ -1,0 +1,35 @@
+.page-wrapper {
+    background: var(--surface-a);
+    color: var(--text-color);
+    min-height: 100vh;
+  }
+  
+  // Toolbar
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+  
+  // Layout de cards
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  
+    @media(min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .upload-card, .list-card {
+    background: var(--surface-b) !important; // PrimeNG cards usan !important a veces
+  }
+  
+  .processed {
+    opacity: 0.6;
+    text-decoration: line-through;
+  }
+
+
+  

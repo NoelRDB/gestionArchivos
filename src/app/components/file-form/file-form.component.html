@@ -1,6 +1,6 @@
 <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col-8">
-      <input type="file" pInputText (change)="onFileSelected($event)" />
+      <input type="file" pInputText (change)="onFileSelected($event)"/>
     </div>
     <div class="p-field p-col-4">
       <button pButton label="Subir" (click)="upload()" [disabled]="!selectedFile"></button>

@@ -28,7 +28,7 @@ export class FileService
 
    // Metodos
 
-   private saveFile(): void
+   private save(): void
    {
     localStorage.setItem(this.storageKey, JSON.stringify(this.files));
    }
@@ -38,26 +38,26 @@ export class FileService
     return[...this.files];
    }
 
-   addFile(file: FileRecord): void
+   add(file: FileRecord): void
    {
     this.files.push(file);
-    this.saveFile();
+    this.save();
    }
 
-   updateFile(file: FileRecord): void
+   update(file: FileRecord): void
    {
     const idx = this.files.findIndex( f => f.id === file.id);
     if (idx > -1)
     {
       this.files[idx] = file;
-      this.saveFile();
+      this.save();
     }
 
    }
 
-   deleteFile(id: number): void
+   delete(id: number): void
    {
     this.files = this.files.filter( f => f.id !== id);
-    this.saveFile();
+    this.save();
    }
 }
