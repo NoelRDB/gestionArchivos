@@ -1,12 +1,5 @@
-<!-- <app-file-form (create)="add($event)"></app-file-form>
-<app-file-filter (change)="filter = $event"></app-file-filter>
-<app-file-list 
-  [files]="archivoFiltrado" 
-  (toggle)="toggle($event)" 
-  (remove)="remove($event)">
-</app-file-list> -->
-
 <div class="page-wrapper" [class.dark]="darkMode">
+  <h1 style="text-align: center;">Gestión de archivos</h1>
   <!-- Barra superior con switch -->
   <div class="toolbar">
     <button
@@ -35,7 +28,7 @@
         class="p-button-outlined p-mr-2"
         (click)="fileInput.click()">
       </button>
-    
+      
       <!-- Botón de Subir -->
       <button 
         pButton 

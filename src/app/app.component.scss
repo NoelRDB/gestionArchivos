@@ -2,6 +2,7 @@
     background: var(--surface-a);
     color: var(--text-color);
     min-height: 100vh;
+    padding: 2rem;
   }
   
   // Toolbar
@@ -9,21 +10,37 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 1rem;
+    
   }
   
   // Layout de cards
   .cards-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
+    
   
     @media(min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   
-  .upload-card, .list-card {
-    background: var(--surface-b) !important; // PrimeNG cards usan !important a veces
+  .upload-card,
+.list-card {
+  background: var(--surface-b) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08) !important;
+}
+
+  .list-card {
+    .p-dropdown {
+      margin-bottom: 1rem;       // espacio debajo
+      border-radius: 0.5rem !important;
+      .p-dropdown-label {
+        padding-left: 0.75rem;   // más “aire” dentro
+      }
+    }
   }
   
   .processed {
@@ -31,5 +48,17 @@
     text-decoration: line-through;
   }
 
+  .upload-card {
+    display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-  
+  .p-button {
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+
+  .p-button:first-child {
+    margin-right: 1rem;       
+  }
+}

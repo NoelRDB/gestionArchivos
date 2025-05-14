@@ -1,11 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+html, body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  background: var(--surface-b);   // mismo fondo de cards
+  padding: 1rem 0;
+  border-radius: 0 0 1rem 1rem;   // redondea solo la base
+  margin-bottom: 2rem;
+}
+
 :root {
-    --surface-a: #ffffff;
-    --surface-b: #f5f5f5;
-    --text-color: #2a2a2a;
+  /* modo claro (pastel) */
+  --surface-a: #f9fbfe;          /* fondo global */
+  --surface-b: #f1f5fb;          /* cards */
+  --surface-c: #e8eef7;          /* tabla/paneles */
+  --text-color: #243447;         /* gris azulado */
+  --primary-color: #6fa8dc;      /* azul pastel */
+  --border-color: #d7e1ef;
+}
+.dark {
+  /* modo oscuro (pastel) */
+  --surface-a: #2a2e3d;
+  --surface-b: #34394b;
+  --surface-c: #3f4458;
+  --text-color:  #e3e6f0;
+  --primary-color: #8fb0e0;
+  --border-color: #525766;
+}
+
+
+/* Cards */
+.p-card.upload-card,
+.p-card.list-card {
+  background: var(--surface-b) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color);
+}
+
+/* Table */
+.p-table {
+  background: var(--surface-c);
+  color: var(--text-color);
+
+  .p-datatable-thead > tr > th {
+    background: var(--surface-b);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
   }
-  
-  .dark {
-    --surface-a: #303030;
-    --surface-b: #424242;
-    --text-color: #eeeeee;
+
+  .p-datatable-tbody > tr > td {
+    border-bottom: 1px solid var(--border-color);
   }
+
+  /* Paginador */
+  .p-paginator .p-paginator-page,
+  .p-paginator .p-paginator-icon {
+    color: var(--text-color);
+  }
+}
+
+/* Botones */
+.p-button {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #fff !important;
+
+  &.p-button-outlined {
+    background: transparent !important;
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+  }
+}
+
+/* Checkbox */
+.p-checkbox .p-checkbox-box {
+  border-color: var(--border-color) !important;
+  background: var(--surface-c) !important;
+
+  &.p-highlight {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+  }
+}
+
+/* ToggleButton */
+.p-togglebutton .p-button {
+  background: transparent !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+.p-togglebutton .p-highlight {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #000 !important;
+}
+

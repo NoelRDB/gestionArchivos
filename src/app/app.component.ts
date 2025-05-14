@@ -5,7 +5,11 @@ import { FileSelectEvent, FileUpload, FileUploadHandlerEvent } from 'primeng/fil
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+
+  
+
+  
 })
 export class AppComponent {
   @ViewChild('uploader') uploader!: FileUpload;
